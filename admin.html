@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin — Karl Simpson PT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:    #0d0d0d;
+      --card:  #111;
+      --white: #ffffff;
+      --blue:  #1e90ff;
+      --muted: rgba(255,255,255,0.5);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Gate screen ──────────────────────────────── */
+    #gate {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .gate-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px 36px;
+      width: 100%;
+      max-width: 360px;
+      text-align: center;
+    }
+
+    .gate-box h1 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .gate-box p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .gate-box input {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+      text-align: center;
+      letter-spacing: 0.08em;
+    }
+
+    .gate-box input:focus { border-color: var(--blue); }
+
+    .gate-box button {
+      width: 100%;
+      padding: 12px;
+      background: var(--blue);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .gate-box button:hover { background: #0070e0; }
+
+    .gate-error {
+      font-size: 13px;
+      color: #ff4d4d;
+      margin-top: 10px;
+      display: none;
+    }
+    .gate-error.visible { display: block; }
+
+    /* ── Admin panel ─────────────────────────────── */
+    #admin {
+      display: none;
+      padding: 0 0 60px;
+    }
+
+    .admin-header {
+      background: rgba(13,13,13,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .admin-header h1 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .admin-header span { color: var(--blue); }
+
+    .btn-logout {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-logout:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+
+    .admin-body { padding: 40px 32px; max-width: 1100px; margin: 0 auto; }
+
+    .admin-notice {
+      background: rgba(30,144,255,0.09);
+      border: 1px solid rgba(30,144,255,0.2);
+      border-radius: 6px;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 36px;
+      line-height: 1.65;
+    }
+
+    .admin-notice strong { color: var(--white); }
+    .admin-notice a { color: var(--blue); }
+
+    .admin-section-title {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Submissions table */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead {
+      background: #151515;
+      border-bottom: 1px solid var(--border);
+    }
+
+    thead th {
+      padding: 13px 16px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+    tbody td {
+      padding: 14px 16px;
+      color: rgba(255,255,255,0.78);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .cell-name   { font-weight: 600; color: var(--white); white-space: nowrap; }
+    .cell-phone  { white-space: nowrap; }
+    .cell-goal   { font-size: 13px; }
+    .cell-note   { font-size: 13px; color: var(--muted); max-width: 240px; }
+
+    .tag {
+      display: inline-block;
+      background: rgba(30,144,255,0.12);
+      border: 1px solid rgba(30,144,255,0.2);
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .placeholder-row td {
+      text-align: center;
+      padding: 48px 16px;
+      color: rgba(255,255,255,0.25);
+      font-size: 14px;
+    }
+
+    /* Checklist */
+    .checklist {
+      margin-top: 48px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+    }
+
+    .checklist h2 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .checklist ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .checklist li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.55;
+    }
+
+    .check-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .checklist li strong { color: var(--white); }
+
+    @media (max-width: 600px) {
+      .admin-header { padding: 14px 16px; }
+      .admin-body   { padding: 24px 16px; }
+      thead th, tbody td { padding: 10px 12px; }
+      .cell-note { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===================================================
+     PASSWORD GATE
+     =================================================== -->
+<div id="gate">
+  <div class="gate-box">
+    <h1>Karl Simpson PT</h1>
+    <p>Admin access only. Enter your password to continue.</p>
+
+    <input type="password" id="pw-input" placeholder="Password" autocomplete="current-password">
+
+    <!--
+      PASSWORD: Change the hardcoded password below.
+      Search for ADMIN_PASSWORD and replace the string.
+      Never share this page's URL publicly.
+    -->
+    <button id="pw-submit">Enter</button>
+    <p class="gate-error" id="pw-error">Incorrect password. Please try again.</p>
+  </div>
+</div>
+
+
+<!-- ===================================================
+     ADMIN PANEL (shown after login)
+     =================================================== -->
+<div id="admin">
+
+  <div class="admin-header">
+    <h1>Karl <span>Simpson PT</span> &mdash; Admin</h1>
+    <button class="btn-logout" id="logout-btn">Log Out</button>
+  </div>
+
+  <div class="admin-body">
+
+    <div class="admin-notice">
+      <strong>Important:</strong> Consultation enquiries submitted via the website are delivered
+      directly to your Formspree inbox — visit
+      <a href="https://formspree.io/forms" target="_blank" rel="noopener">formspree.io/forms</a>
+      to view, export, and manage all submissions. The table below is a reference layout;
+      connect it to Formspree's API or a backend if you need live data here.
+    </div>
+
+    <div class="admin-section-title">Recent Enquiries (example layout)</div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Goal</th>
+            <th>Contact Time</th>
+            <th>Notes / Injuries</th>
+            <th>Received</th>
+          </tr>
+        </thead>
+        <tbody id="submissions-table">
+          <!-- Example row — delete once real data is connected -->
+          <tr>
+            <td class="cell-name">Example Client</td>
+            <td class="cell-phone">+44 7700 000000</td>
+            <td>example@email.com</td>
+            <td class="cell-goal"><span class="tag">Strength</span></td>
+            <td>Evening</td>
+            <td class="cell-note">Previous knee surgery, 2019</td>
+            <td style="white-space:nowrap;color:var(--muted)">22 Jun 2026</td>
+          </tr>
+          <tr class="placeholder-row">
+            <td colspan="7">
+              &mdash;&nbsp; Live submissions appear in your Formspree dashboard &nbsp;&mdash;<br>
+              <span style="font-size:12px;margin-top:6px;display:block;">
+                Connect the Formspree API here to populate this table automatically
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Setup checklist -->
+    <div class="checklist">
+      <h2>&#9989; Post-Launch Checklist</h2>
+      <ul>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Swap Formspree ID:</strong> In index.html, replace
+            <code>YOUR_FORM_ID</code> in the form's action attribute with your real Formspree form ID.
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Confirm pricing with Karl:</strong> Verify all listed prices before going live —
+            especially the 6-week block (£240) and monthly nutrition/online coaching rates.
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Add Karl's photo:</strong> Replace the dark placeholder in the About section with
+            a real headshot (see comment in index.html around the <code>.about-photo</code> div).
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Add hero background photo:</strong> See comment in index.html inside
+            <code>#hero</code> for exact CSS replacement instructions.
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Change admin password:</strong> In admin.html, search for
+            <code>ADMIN_PASSWORD</code> in the script block and update the string to a strong password.
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Snap Fitness membership:</strong> Confirm Karl can direct new clients to the
+            correct Snap Fitness membership option for in-person sessions.
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Footer credit:</strong> Replace <em>[Your Name / Brand]</em> in index.html footer
+            with the actual website author credit.
+          </span>
+        </li>
+        <li>
+          <div class="check-box"></div>
+          <span>
+            <strong>Test form end-to-end:</strong> Submit a test enquiry and confirm it arrives in
+            the Formspree inbox before sharing the site with Karl.
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ===================================================
+     JAVASCRIPT — password gate
+     =================================================== -->
+<script>
+  /*
+    ADMIN_PASSWORD: Change the password below before deploying.
+    This is a basic client-side gate — sufficient for a simple admin
+    reference page. For sensitive data, use server-side auth instead.
+  */
+  const ADMIN_PASSWORD = 'KarlPT2026';
+
+  const gate      = document.getElementById('gate');
+  const adminDiv  = document.getElementById('admin');
+  const pwInput   = document.getElementById('pw-input');
+  const pwSubmit  = document.getElementById('pw-submit');
+  const pwError   = document.getElementById('pw-error');
+  const logoutBtn = document.getElementById('logout-btn');
+
+  // Check session storage so the gate doesn't re-appear on same-tab refresh
+  if (sessionStorage.getItem('ks_admin_auth') === '1') {
+    gate.style.display  = 'none';
+    adminDiv.style.display = 'block';
+  }
+
+  function attemptLogin() {
+    if (pwInput.value === ADMIN_PASSWORD) {
+      sessionStorage.setItem('ks_admin_auth', '1');
+      gate.style.display     = 'none';
+      adminDiv.style.display = 'block';
+      pwError.classList.remove('visible');
+    } else {
+      pwError.classList.add('visible');
+      pwInput.value = '';
+      pwInput.focus();
+    }
+  }
+
+  pwSubmit.addEventListener('click', attemptLogin);
+  pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') attemptLogin(); });
+
+  logoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem('ks_admin_auth');
+    adminDiv.style.display = 'none';
+    gate.style.display     = 'flex';
+    pwInput.value = '';
+    pwInput.focus();
+  });
+</script>
+
+</body>
+</html>

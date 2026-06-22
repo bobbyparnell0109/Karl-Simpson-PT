@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karl Simpson — Personal Trainer in King's Lynn. Specialising in strength, conditioning and injury rehab at Snap Fitness. Book a free consultation today.">
+
+  <!-- Website by [Your Name / Brand] -->
+
+  <title>Karl Simpson | Personal Trainer — King's Lynn</title>
+
+  <!-- Google Fonts: Barlow Condensed (headings) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================================================
+     STICKY HEADER
+     =================================================== -->
+<header id="header">
+
+  <button class="hamburger" id="hamburger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="header-brand">
+    Karl <span class="accent">Simpson</span>&nbsp;&nbsp;|&nbsp;&nbsp;Personal Trainer
+  </div>
+
+  <div class="header-right">
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#location">Location</a>
+    </nav>
+    <a href="#booking" class="btn btn-primary">Book a Session</a>
+  </div>
+
+</header>
+
+<!-- Mobile navigation drawer -->
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation" aria-hidden="true">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#results" class="mobile-link">Results</a>
+  <a href="#booking" class="mobile-link">Book Now</a>
+  <a href="#testimonials" class="mobile-link">Reviews</a>
+  <a href="#location" class="mobile-link">Location</a>
+</nav>
+
+
+<!-- ===================================================
+     HERO
+     =================================================== -->
+<section id="hero">
+  <!--
+    PHOTO PLACEMENT:
+    When a hero photo is available, open styles.css and replace the
+    background property on #hero with:
+
+      background:
+        linear-gradient(160deg, rgba(13,13,13,0.72) 0%, rgba(13,13,13,0.55) 100%),
+        url('images/hero.jpg') center top / cover no-repeat;
+  -->
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">King's Lynn &nbsp;&middot;&nbsp; Snap Fitness &nbsp;&middot;&nbsp; Results-Driven Coaching</p>
+
+    <h1 class="hero-title">
+      Train Smarter.<br><span class="accent">Get Results.</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Personal training at Snap Fitness, King's Lynn — tailored to your goals, your schedule, your body.
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#booking" class="btn btn-primary">Book a Free Consultation</a>
+      <a href="tel:+447449061422" class="btn btn-outline">Call Now</a>
+    </div>
+
+    <div class="trust-strip">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>
+        5.0 Stars &nbsp;&middot;&nbsp; Specialising in injury rehabilitation, strength &amp; conditioning
+        &nbsp;&middot;&nbsp; Based at Snap Fitness, King's Lynn
+      </span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ===================================================
+     ABOUT KARL
+     =================================================== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!--
+        PHOTO PLACEMENT:
+        When Karl's photo is ready, replace this entire <div class="about-photo">
+        block with:
+          <img src="images/karl.jpg"
+               alt="Karl Simpson, Personal Trainer at Snap Fitness King's Lynn"
+               class="about-photo"
+               style="object-fit:cover; width:100%; border-radius:6px;">
+      -->
+      <div class="about-photo">
+        <span class="about-photo-label">Karl's photo goes here</span>
+        <div class="about-photo-accent"></div>
+      </div>
+
+      <div class="about-text">
+        <span class="section-label">Your Trainer</span>
+        <h2>Who Is <span class="accent">Karl?</span></h2>
+
+        <p>
+          Karl is a King's Lynn-based personal trainer operating from Snap Fitness. He builds
+          programmes around each individual client — whether you're recovering from injury,
+          returning to fitness after years away, building strength from scratch, or pushing
+          past a plateau.
+        </p>
+
+        <p>
+          He adjusts sessions based on how you're feeling, explains the why behind every
+          exercise, and tracks your progress over time. No copy-paste programmes. No guesswork.
+        </p>
+
+        <div class="about-badges">
+          <span class="badge">Injury Rehabilitation</span>
+          <span class="badge">Strength &amp; Conditioning</span>
+          <span class="badge">Tailored Programmes</span>
+          <span class="badge">All Fitness Levels</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ===================================================
+     SERVICES & PRICING
+     =================================================== -->
+<section id="services">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-label">What I offer</span>
+      <h2>Services &amp; Pricing</h2>
+      <p>Straightforward pricing, no hidden fees. Every session is built around you.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-duration">60 min</div>
+        <div class="service-name">1:1 Personal Training Session</div>
+        <p class="service-desc">
+          Fully tailored to your goals and current level. Every session is different —
+          progressive, purposeful, and tracked.
+        </p>
+        <div class="service-price">from £45</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-duration">30 min</div>
+        <div class="service-name">Free Initial Consultation</div>
+        <p class="service-desc">
+          Discuss your goals, assess your starting point, and build your plan together.
+          Zero pressure. Zero commitment.
+        </p>
+        <div class="service-price free">FREE</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-duration">Ongoing</div>
+        <div class="service-name">Injury Rehabilitation Programme</div>
+        <p class="service-desc">
+          Designed around your recovery — safe, progressive, and effective. Karl works
+          around what you can do, not what you can't.
+        </p>
+        <div class="service-price">from £45/session</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-duration">6-week programme</div>
+        <div class="service-name">Strength &amp; Conditioning Block</div>
+        <p class="service-desc">
+          Structured progression with regular check-ins. Built to create measurable
+          improvements in strength, power, and body composition.
+        </p>
+        <div class="service-price">from £240</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-duration">Add-on service</div>
+        <div class="service-name">Nutrition Guidance</div>
+        <p class="service-desc">
+          Macro guidance and habit coaching to complement your training. Simple, practical
+          advice — not a restrictive diet plan.
+        </p>
+        <div class="service-price">from £20/month</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-duration">Flexible</div>
+        <div class="service-name">Online Coaching</div>
+        <p class="service-desc">
+          Training plan&nbsp;+&nbsp;weekly check-ins for those who can't train in person.
+          Full accountability, same results.
+        </p>
+        <div class="service-price">from £60/month</div>
+      </div>
+
+    </div>
+
+    <p class="service-note">
+      <strong>Note:</strong> A Snap Fitness membership is required for all in-person sessions.
+      Karl can advise on the best membership option for your needs.
+    </p>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ===================================================
+     RESULTS
+     =================================================== -->
+<section id="results">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-label">Track record</span>
+      <h2>The Numbers</h2>
+    </div>
+
+    <div class="results-grid">
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Client Satisfaction</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">5&#9733;</div>
+        <div class="stat-label">Average Google Rating</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">All Levels</div>
+        <div class="stat-label">From Beginner to Advanced</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ===================================================
+     BOOKING / ENQUIRY FORM
+     =================================================== -->
+<section id="booking">
+  <div class="container">
+    <div class="booking-inner">
+
+      <span class="section-label">Get started</span>
+      <h2>Book Your Free Consultation</h2>
+      <p class="sub">
+        No commitment. 30 minutes. Find out if Karl is the right fit for your goals.
+      </p>
+
+      <!--
+        FORMSPREE SETUP:
+        1. Go to formspree.io and create a free account
+        2. Create a new form — you'll get an ID like "abcdefgh"
+        3. Replace YOUR_FORM_ID below with that ID
+        Example: action="https://formspree.io/f/abcdefgh"
+      -->
+      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name"
+            placeholder="Your full name" required autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Mobile Number</label>
+          <input type="tel" id="phone" name="phone"
+            placeholder="+44 7xxx xxxxxx" required autocomplete="tel">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email"
+            placeholder="your@email.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="goal">Your Main Goal</label>
+          <select id="goal" name="goal" required>
+            <option value="" disabled selected>Select your primary goal</option>
+            <option value="weight-loss">Lose weight / improve fitness</option>
+            <option value="strength">Build strength and muscle</option>
+            <option value="rehab">Injury rehabilitation</option>
+            <option value="sports">Improve sports performance</option>
+            <option value="health">General health and wellbeing</option>
+            <option value="other">Other &mdash; describe below</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="injuries">
+            Any injuries or health conditions?
+            <span class="form-optional">(optional)</span>
+          </label>
+          <textarea id="injuries" name="injuries"
+            placeholder="e.g. previous knee surgery, lower back pain — leave blank if none"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="contact-time">Preferred Contact Time</label>
+          <select id="contact-time" name="contact_time" required>
+            <option value="" disabled selected>When should Karl call?</option>
+            <option value="morning">Morning (before 12pm)</option>
+            <option value="afternoon">Afternoon (12pm – 5pm)</option>
+            <option value="evening">Evening (after 5pm)</option>
+          </select>
+        </div>
+
+        <!-- Honeypot — hidden from real users, traps bots -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_subject" value="New consultation request — Karl Simpson PT">
+
+        <button type="submit" class="btn-submit">
+          Request Free Consultation &rarr;
+        </button>
+
+      </form>
+
+      <div id="form-success" role="alert" aria-live="polite">
+        Request sent &#10003; &mdash; Karl will be in touch within 24 hours to arrange your free consultation.
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ===================================================
+     TESTIMONIALS
+     =================================================== -->
+<section id="testimonials">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-label">What clients say</span>
+      <h2>Real Results, Real People</h2>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          &ldquo;Karl adjusts your programme to suit you and your body. Very knowledgeable in
+          his field. I have and would recommend him again.&rdquo;
+        </p>
+        <div class="testimonial-author">&mdash; Mark T.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          &ldquo;I started training while recovering from a back injury — Karl made sure
+          exercises were safe, helped with recovery, and always explained why we were doing
+          each movement. Can't recommend enough.&rdquo;
+        </p>
+        <div class="testimonial-author">&mdash; James R.</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">
+          &ldquo;Karl has changed my habits of a lifetime and improved my strength and
+          flexibility. He pushes you further than you think possible. Would highly
+          recommend.&rdquo;
+        </p>
+        <div class="testimonial-author">&mdash; Patricia M.</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+
+<!-- ===================================================
+     LOCATION + CONTACT
+     =================================================== -->
+<section id="location">
+  <div class="container">
+    <div class="location-grid">
+
+      <div class="location-info">
+        <span class="section-label">Where to find us</span>
+        <h2>Based at <span class="accent">Snap Fitness</span></h2>
+
+        <div class="location-details">
+
+          <div class="location-item">
+            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <div class="location-item-text">
+              <strong>Address</strong>
+              St Nicholas Retail Park,<br>King's Lynn, PE30 2HW
+            </div>
+          </div>
+
+          <div class="location-item">
+            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.36 19.36 0 0 1 1.64 3 2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            <div class="location-item-text">
+              <strong>Phone</strong>
+              <a href="tel:+447449061422">+44 7449 061422</a>
+            </div>
+          </div>
+
+          <div class="location-item">
+            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <div class="location-item-text">
+              <strong>Session Hours</strong>
+              Monday &ndash; Saturday, 6am &ndash; 9pm
+            </div>
+          </div>
+
+          <div class="location-item">
+            <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="1" y="3" width="15" height="13"/>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+            <div class="location-item-text">
+              <strong>Parking</strong>
+              Free parking on site at Snap Fitness
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="map-wrap">
+        <!--
+          Google Maps embed — dark CSS filter applied via styles.css
+          to match the site's dark aesthetic.
+        -->
+        <iframe
+          src="https://maps.google.com/maps?q=Snap+Fitness+St+Nicholas+Retail+Park+Kings+Lynn+PE30+2HW&t=&z=15&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Snap Fitness King's Lynn — Google Maps"
+          allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================================================
+     FOOTER
+     =================================================== -->
+<footer id="footer">
+  <div class="footer-name">Karl Simpson Personal Training &middot; King's Lynn</div>
+  <div class="footer-phone"><a href="tel:+447449061422">+44 7449 061422</a></div>
+  <div class="footer-legal">
+    &copy; 2026 Karl Simpson Fitness. All rights reserved.
+  </div>
+  <!-- Non-negotiable credit line — keep this in place -->
+  <div class="footer-by">Website by [Your Name / Brand]</div>
+</footer>
+
+
+<!-- ===================================================
+     JAVASCRIPT
+     =================================================== -->
+<script>
+  // ── Sticky header scroll effect ─────────────────────
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // ── Hamburger / mobile nav ───────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  function openNav() {
+    mobileNav.classList.add('open');
+    mobileNav.setAttribute('aria-hidden', 'false');
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden', 'true');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.contains('open') ? closeNav() : openNav();
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('click', e => {
+    if (mobileNav.classList.contains('open') &&
+        !mobileNav.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileNav.classList.contains('open')) closeNav();
+  });
+
+  // ── Contact form (Formspree async) ───────────────────
+  const form       = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+  const submitBtn  = form.querySelector('.btn-submit');
+  const origLabel  = submitBtn.textContent;
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    // Basic validation
+    const required = form.querySelectorAll('[required]');
+    let valid = true;
+    required.forEach(el => {
+      if (!el.value.trim()) { el.focus(); valid = false; }
+    });
+    if (!valid) return;
+
+    submitBtn.disabled    = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(form.action, {
+        method:  'POST',
+        body:    new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = origLabel;
+        alert('Something went wrong. Please call Karl directly on +44 7449 061422.');
+      }
+    } catch {
+      submitBtn.disabled    = false;
+      submitBtn.textContent = origLabel;
+      alert('Network error. Please call Karl directly on +44 7449 061422.');
+    }
+  });
+</script>
+
+</body>
+</html>
